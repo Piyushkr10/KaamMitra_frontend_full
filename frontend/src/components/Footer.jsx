@@ -26,9 +26,9 @@ export default function Footer({ darkMode }) {
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <Link to="/" className="flex items-center gap-2 mb-4">
             <img
-              src={darkMode ? "/logo2.png" : "/logo.png"}
-              alt="KaamMitra"
-              className="h-10 w-auto"
+             src="/logo.png"
+                   alt="KaamMitra"
+                   className="h-10 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
             />
           </Link>
           <p className="text-sm">
