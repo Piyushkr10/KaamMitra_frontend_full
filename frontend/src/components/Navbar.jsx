@@ -95,11 +95,11 @@ export default function Navbar({
     >
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 ml-12">
           <img
-            src={darkMode ? "/logo2.png" : "/logo.png"}
-            alt="KaamMitra"
-            className="h-12 w-auto"
+             src="/logo.png"
+                   alt="KaamMitra"
+                   className="h-20 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
           />
         </Link>
 
