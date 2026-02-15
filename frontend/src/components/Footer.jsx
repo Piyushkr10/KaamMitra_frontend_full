@@ -26,18 +26,20 @@ export default function Footer({ darkMode }) {
   return (
     <footer className="bg-blue-100 text-gray-700 dark:bg-gray-900 dark:text-gray-400 py-12 transition-colors duration-300">
       <div className="container mx-auto px-6">
-        
+
         {/*  MOBILE VIEW  */}
         <div className="md:hidden space-y-10">
-          
+
           {/* Logo + Social Icons */}
           <div className="flex flex-row justify-between items-center text-center">
             <Link to="/" className="mb-4">
               <img
-                src={darkMode ? "/logo2.png" : "/logo.png"}
+                src="/logo.png"
                 alt="KaamMitra"
-                className="h-10 w-auto mx-auto"
+                className={`h-10 w-auto transition duration-300 ${darkMode ? "invert brightness-0" : ""
+                  }`}
               />
+
             </Link>
 
             {/* Social Icons */}
@@ -51,7 +53,7 @@ export default function Footer({ darkMode }) {
 
           {/* Services + Quick Links */}
           <div className="grid grid-cols-2 text-center">
-            
+
             {/* Services */}
             <div>
               <h3 className="text-lg font-bold text-blue-800 dark:text-blue-500 mb-3">
@@ -111,15 +113,17 @@ export default function Footer({ darkMode }) {
 
         {/* DESKTOP VIEW  */}
         <div className="hidden md:grid grid-cols-4 gap-8">
-          
+
           {/* Company Info */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
               <img
-                src={darkMode ? "/logo2.png" : "/logo.png"}
+                src="/logo.png"
                 alt="KaamMitra"
-                className="h-10 w-auto"
+                className={`h-10 w-auto transition duration-300 ${darkMode ? "invert brightness-0" : ""
+                  }`}
               />
+
             </Link>
             {/* Social Icons */}
             <div className="flex gap-4">
