@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MapPin, Search } from "lucide-react";
 import { getProfile, getServices } from "../services/api";
 import ServicesMenu from "./ServicesMenu";
+import Footer from "../components/Footer";
 
 export default function Home({ isLoggedIn, userName }) {
   const [city, setCity] = useState("");
@@ -182,6 +183,12 @@ export default function Home({ isLoggedIn, userName }) {
 
         </div>
       </section>
+        {/* ================= FOOTER SECTION ================= */}
+      {/* Proper separation from content */}
+     
+          <div className="mt-20 border-t border-gray-200 dark:border-gray-800">
+            <Footer />
+          </div>
     </div>
   );
 }
