@@ -95,9 +95,8 @@ export default function Login({ onLoginComplete }) {
   };
 
   return (
-    // <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300 px-4">
-    // correct div for sticking  page
-    <div className="flex justify-center items-center min-h-[calc(100vh-104px)] bg-gray-100 dark:bg-gray-900 transition-colors duration-300 px-4">
+       // correct div for sticking  page
+  <div className="flex justify-center items-center min-h-[calc(100vh-104px)] bg-gray-100 dark:bg-gray-900 transition-colors duration-300 px-4">
 
       <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-white p-6 rounded-xl shadow-md w-full max-w-md relative transition-colors duration-300">
 
