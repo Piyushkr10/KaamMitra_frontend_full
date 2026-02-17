@@ -36,9 +36,9 @@ export default function Footer({ darkMode }) {
               <img
                 src="/logo.png"
                 alt="KaamMitra"
-                className={`h-10 w-auto transition duration-300 ${darkMode ? "invert brightness-0" : ""
-                  }`}
+                className="h-10 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
               />
+
 
             </Link>
 
@@ -117,13 +117,13 @@ export default function Footer({ darkMode }) {
           {/* Company Info */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              
-                        <img
-                           src="/logo.png"
-                                 alt="KaamMitra"
-                                 className="h-10 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
-                        />
-                    
+
+              <img
+                src="/logo.png"
+                alt="KaamMitra"
+                className="h-10 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
+              />
+
             </Link>
             {/* Social Icons */}
             <div className="flex gap-4">
