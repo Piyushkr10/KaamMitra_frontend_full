@@ -370,7 +370,7 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
 
-          <Footer darkMode={darkMode} />
+         
         </Router>
       </div>
     </I18nextProvider>

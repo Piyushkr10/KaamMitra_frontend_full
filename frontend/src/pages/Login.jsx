@@ -95,7 +95,9 @@ export default function Login({ onLoginComplete }) {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300 px-4">
+       // correct div for sticking  page
+  <div className="flex justify-center items-center min-h-[calc(100vh-104px)] bg-gray-100 dark:bg-gray-900 transition-colors duration-300 px-4">
+
       <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-white p-6 rounded-xl shadow-md w-full max-w-md relative transition-colors duration-300">
 
         <Link
@@ -111,10 +113,9 @@ export default function Login({ onLoginComplete }) {
         {message && (
           <div
             className={`flex items-center gap-2 p-3 mb-4 text-sm rounded-lg transition-colors duration-300
-              ${
-                messageType === "error"
-                  ? "bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300"
-                  : "bg-green-100 dark:bg-green-900 text-black dark:text-white"
+              ${messageType === "error"
+                ? "bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300"
+                : "bg-green-100 dark:bg-green-900 text-black dark:text-white"
               }`}
           >
             <XCircle size={20} />

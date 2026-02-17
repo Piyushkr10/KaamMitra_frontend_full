@@ -212,8 +212,10 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col items-center p-4">
-      <h1 className="text-3xl font-semibold mb-8 text-gray-800 dark:text-white">
+  // correct div for sticking  page
+    <div className="min-h-[calc(100vh-104px)] bg-gray-100 dark:bg-gray-900 transition-colors duration-300 px-4 py-6 overflow-y-auto flex flex-col items-center">
+
+      <h1 className="text-3xl font-semibold mb-8 text-gray-800 dark:text-white text-center">
         Customer Registration
       </h1>
 
