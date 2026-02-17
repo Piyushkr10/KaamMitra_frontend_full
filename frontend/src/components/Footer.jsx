@@ -33,12 +33,12 @@ export default function Footer({ darkMode }) {
           {/* Logo + Social Icons */}
           <div className="flex flex-row justify-between items-center text-center">
             <Link to="/" className="mb-4">
-               <img
-                           src="/logo.png"
-                                 alt="KaamMitra"
-                                 className="h-10 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
-                        />
-                    
+              <img
+                src="/logo.png"
+                alt="KaamMitra"
+                className="h-10 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
+              />
+
 
             </Link>
 
@@ -117,13 +117,13 @@ export default function Footer({ darkMode }) {
           {/* Company Info */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              
-                        <img
-                           src="/logo.png"
-                                 alt="KaamMitra"
-                                 className="h-10 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
-                        />
-                    
+
+              <img
+                src="/logo.png"
+                alt="KaamMitra"
+                className="h-10 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
+              />
+
             </Link>
             {/* Social Icons */}
             <div className="flex gap-4">
