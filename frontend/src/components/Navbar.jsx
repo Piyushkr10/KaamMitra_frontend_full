@@ -95,7 +95,7 @@ export default function Navbar({
     >
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 ml-12">
+        <Link to="/" className="flex items-center gap-2 ml-2">
           <img
              src="/logo.png"
                    alt="KaamMitra"
