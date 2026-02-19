@@ -94,6 +94,7 @@ export default function Navbar({
                  shadow sticky top-0 z-50 transition-colors duration-300"
     >
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+      
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 ml-2cd f  
         ">
@@ -266,14 +267,28 @@ export default function Navbar({
 
 
 
-        {/* Mobile Hamburger (Right side) */}
+      {/* Mobile Right Icons */}  
+
+    <div className="flex items-center gap-3 md:hidden">
+
+      {/* Dark Mode Icon (Mobile) */}
         <button
-          className="md:hidden p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          onClick={toggleDarkMode}
+         className="p-2 rounded-full bg-gray-200 dark:bg-gray-800"
+          >
+       {darkMode ? <Sun size={20} /> : <Moon size={20} />}
         </button>
 
+      {/* Hamburger */}
+        <button
+         onClick={() => setMenuOpen(!menuOpen)}
+          className="p-2"
+           >
+      {menuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+    </div>
+
+      
         {/* Mobile Menu */}
         {menuOpen && !hideNavItems && (
           <div className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm">
@@ -352,7 +367,7 @@ export default function Navbar({
               </div>
 
               {/* Language */}
-              <div className="mt-6 border-t pt-1">
+              <div className="mt-6 border-t pt-4">
                 <p className="font-semibold mb-2">{t("language")}</p>
                 <div className="space-y-2">
                   <button onClick={() => changeLanguage("en")} className="block w-full text-left">
