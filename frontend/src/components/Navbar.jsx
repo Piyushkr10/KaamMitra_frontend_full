@@ -94,13 +94,14 @@ export default function Navbar({
                  shadow sticky top-0 z-50 transition-colors duration-300"
     >
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+      
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 ml-2cd f  
         ">
           <img
-             src="/logo.png"
-                   alt="KaamMitra"
-                   className="h-20 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
+            src="/logo.png"
+            alt="KaamMitra"
+            className="h-20 w-auto object-contain transition duration-300 dark:brightness-0 dark:invert"
           />
         </Link>
 
@@ -266,128 +267,124 @@ export default function Navbar({
 
 
 
-        {/* Mobile Hamburger (Right side) */}
-        {!hideNavItems && (
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded-full hover:bg-gray-400 dark:hover:bg-gray-700 transition-colors"
+      {/* Mobile Right Icons */}  
+
+    <div className="flex items-center gap-3 md:hidden">
+
+      {/* Dark Mode Icon (Mobile) */}
+        <button
+          onClick={toggleDarkMode}
+         className="p-2 rounded-full bg-gray-200 dark:bg-gray-800"
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+       {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+
+      {/* Hamburger */}
+        <button
+         onClick={() => setMenuOpen(!menuOpen)}
+          className="p-2"
+           >
+      {menuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+    </div>
+
+      
+        {/* Mobile Menu */}
+        {menuOpen && !hideNavItems && (
+          <div className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm">
+
+            {/* Side Drawer */}
+            <div className="absolute right-0 top-0 h-full w-72 bg-white dark:bg-gray-900 shadow-lg p-6 overflow-y-auto transition-transform duration-300">
+
+              {/* Close Button */}
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-lg font-bold">{t("Menu")}</h2>
+                <button onClick={() => setMenuOpen(false)}>
+                  <X size={22} />
+                </button>
+              </div>
+
+              {/* Services */}
+              <div className="mb-3">
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className="flex justify-between w-full font-semibold py-2"
+                >
+                  {t("services")}
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform ${servicesOpen ? "rotate-180" : ""
+                      }`}
+                  />
+                </button>
+
+                {servicesOpen && (
+                  <div className="pl-3 space-y-2 mt-1">
+                    {SERVICES.map((name) => (
+                      <Link
+                        key={name}
+                        to={`/service/${encodeURIComponent(name)}`}
+                        onClick={() => setMenuOpen(false)}
+                        className="block text-sm hover:text-blue-600"
+                      >
+                        {name}
+                      </Link>
+                    ))}
+                    <Link
+                      to="/moreservices"
+                      onClick={() => setMenuOpen(false)}
+                      className="block font-semibold text-blue-600"
+                    >
+                      {t("see_more")}
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Auth */}
+              <div className="space-y-2 border-t pt-3">
+                {isLoggedIn ? (
+                  <>
+                    <Link to="/book-history" onClick={() => setMenuOpen(false)}>
+                      {t("my_book_history")}
+                    </Link>
+                    <Link to="/settings" onClick={() => setMenuOpen(false)}>
+                      {t("settings")}
+                    </Link>
+                    <Link
+                      to="/logout"
+                      onClick={() => setMenuOpen(false)}
+                      className="text-red-600"
+                    >
+                      {t("logout")}
+                    </Link>
+                  </>
+                ) : (
+                  <Link to="/login" onClick={() => setMenuOpen(false)}>
+                    {t("login")}
+                  </Link>
+                )}
+              </div>
+
+              {/* Language */}
+              <div className="mt-6 border-t pt-4">
+                <p className="font-semibold mb-2">{t("language")}</p>
+                <div className="space-y-2">
+                  <button onClick={() => changeLanguage("en")} className="block w-full text-left">
+                    English
+                  </button>
+                  <button onClick={() => changeLanguage("hi")} className="block w-full text-left">
+                    Hindi
+                  </button>
+                  <button onClick={() => changeLanguage("bn")} className="block w-full text-left">
+                    Bengali
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && !hideNavItems && (
-        <div className="md:hidden bg-gray-200 dark:bg-gray-800 px-6 py-4 space-y-4">
-          {/* Services Dropdown */}
-          <div>
-            <button
-              onClick={() => setServicesOpen(!servicesOpen)}
-              className="flex justify-between w-full font-semibold py-2"
-            >
-              {t("services")}
-              <ChevronDown
-                size={16}
-                className={`transition-transform ${
-                  servicesOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-            {servicesOpen && (
-              <div className="pl-3 space-y-2">
-                {SERVICES.map((name) => (
-                  <Link
-                    key={name}
-                    to={`/service/${encodeURIComponent(name)}`}
-                    onClick={() => setMenuOpen(false)}
-                    className="block text-sm"
-                  >
-                    {name}
-                  </Link>
-                ))}
-                <Link
-                  to="/moreservices"
-                  onClick={() => setMenuOpen(false)}
-                  className="block font-semibold"
-                >
-                  {t("see_more")}
-                </Link>
-              </div>
-            )}
-          </div>
-
-          {/* Auth Links */}
-          <div className="space-y-2">
-            {isLoggedIn ? (
-              <>
-                <Link to="/book-history" onClick={() => setMenuOpen(false)}>
-                  {t("my_book_history")}
-                </Link>
-                <Link to="/settings" onClick={() => setMenuOpen(false)}>
-                  {t("settings")}
-                </Link>
-                <Link
-                  to="/logout"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-red-600"
-                >
-                  {t("logout")}
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link to="/login" onClick={() => setMenuOpen(false)}>
-                  {t("login")}
-                </Link>
-                {/* <Link
-                  to="/signup"
-                  onClick={() => setMenuOpen(false)}
-                  className="bg-blue-700 text-white px-3 py-2 rounded inline-block"
-                >
-                  {t("signup")}
-                </Link> */}
-              </>
-            )}
-          </div>
-
-          {/* Language Dropdown */}
-          <div>
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex justify-between w-full font-semibold py-2"
-            >
-              {t("language")}
-              <ChevronDown
-                size={16}
-                className={`transition-transform ${langOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            {langOpen && (
-              <div className="pl-3 space-y-2">
-                <button
-                  onClick={() => changeLanguage("en")}
-                  className="block text-sm w-full text-left"
-                >
-                  English
-                </button>
-                <button
-                  onClick={() => changeLanguage("hi")}
-                  className="block text-sm w-full text-left"
-                >
-                  Hindi
-                </button>
-                <button
-                  onClick={() => changeLanguage("bn")}
-                  className="block text-sm w-full text-left"
-                >
-                  Bengali
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </header>
   );
 }
