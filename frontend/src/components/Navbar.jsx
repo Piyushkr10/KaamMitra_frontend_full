@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Moon, Sun, User, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const SERVICES = [
   "Plumbing",
@@ -111,7 +112,12 @@ export default function Navbar({
               <Link to="/" className="font-medium">
                 {t("home")}
               </Link>
-
+            <Link
+  to="/booking-details"
+  className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition"
+>
+  My Booking
+</Link>
               {/* Services Dropdown */}
               <div className="relative" ref={servicesRef}>
                 <button
@@ -267,14 +273,17 @@ export default function Navbar({
 
 
         {/* Mobile Hamburger (Right side) */}
+      
         {!hideNavItems && (
-          <button
+         
+         <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden p-2 rounded-full hover:bg-gray-400 dark:hover:bg-gray-700 transition-colors"
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         )}
+        
       </div>
 
       {/* Mobile Menu */}
@@ -286,6 +295,7 @@ export default function Navbar({
               onClick={() => setServicesOpen(!servicesOpen)}
               className="flex justify-between w-full font-semibold py-2"
             >
+              
               {t("services")}
               <ChevronDown
                 size={16}
@@ -315,6 +325,7 @@ export default function Navbar({
                 </Link>
               </div>
             )}
+            
           </div>
 
           {/* Auth Links */}
@@ -386,6 +397,15 @@ export default function Navbar({
               </div>
             )}
           </div>
+          
+         <div>
+           <Link
+  to="/booking-details"
+  className="px-0 py-4  text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors font-medium"
+>
+  My Booking
+</Link>
+         </div>
         </div>
       )}
     </header>

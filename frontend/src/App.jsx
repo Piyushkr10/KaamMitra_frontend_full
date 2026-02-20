@@ -308,9 +308,9 @@ export default function App() {
             <Route path="/logout" element={<LogOut onLogout={handleLogout} />} />
             
             <Route
-  path="/booking-details"
-  element={<BookingDetails darkMode={darkMode} />}
-/>
+                     path="/booking-details"
+                     element={<BookingDetails darkMode={darkMode} />}
+            />
 
             {/* Protected Routes */}
             <Route
