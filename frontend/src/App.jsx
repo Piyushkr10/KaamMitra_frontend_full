@@ -205,6 +205,7 @@ import MyBookingHistory from "./pages/MyBookingHistory";
 import Settings from "./pages/Settings";
 import LogOut from "./pages/LogOut";
 import PaymentPage from "./components/PaymentPage";
+import BookingDetails from "./pages/BookingDetails";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -305,6 +306,7 @@ export default function App() {
             <Route path="/signup" element={<SignUp onRegistrationComplete={handleRegistrationComplete} />} />
             <Route path="/login" element={<Login onLoginComplete={handleLoginComplete} registeredUsers={registeredUsers} />} />
             <Route path="/logout" element={<LogOut onLogout={handleLogout} />} />
+            <Route path="/booking-details" element={<BookingDetails darkMode={darkMode} />} />
 
             {/* Protected Routes */}
             <Route
