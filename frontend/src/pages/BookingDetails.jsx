@@ -122,9 +122,10 @@ export default function BookingDetails({ darkMode }) {
             className="grid md:grid-cols-2 gap-8"
           >
             {/* Left - Job Info Card */}
+         {/* Left - Job Info Card */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 relative overflow-hidden group"
+              className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/40 dark:shadow-none border border-slate-200/60 dark:border-slate-800 relative overflow-hidden group h-full flex flex-col"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
               
@@ -135,7 +136,7 @@ export default function BookingDetails({ darkMode }) {
                 <h2 className="text-2xl font-black text-slate-800 dark:text-white">Job Details</h2>
               </div>
 
-              <ul className="space-y-8 relative z-10">
+              <ul className="space-y-8 relative z-10 flex-grow">
                 {[
                   { icon: MapPin, label: "Service Address", value: "Flat 402, KaamMitra Residency, New Delhi", sub: "Gate 2 access preferred" },
                   { icon: Phone, label: "Contact Hotline", value: "+91 98765 43210", highlight: true },
@@ -150,8 +151,8 @@ export default function BookingDetails({ darkMode }) {
                         <p className="text-[11px] uppercase tracking-widest text-slate-400 font-black mb-1">{item.label}</p>
                         {item.action && <button className="text-[10px] font-bold text-blue-600 hover:underline">{item.action}</button>}
                       </div>
-                      <p className={`font-bold ${item.highlight ? "text-blue-600 text-lg" : "text-slate-700 dark:text-slate-200"}`}>{item.value}</p>
-                      {item.sub && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 italic">{item.sub}</p>}
+                      <p className={`font-bold leading-tight ${item.highlight ? "text-blue-600 text-lg" : "text-slate-700 dark:text-slate-200"}`}>{item.value}</p>
+                      {item.sub && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{item.sub}</p>}
                     </div>
                   </motion.li>
                 ))}
@@ -161,7 +162,7 @@ export default function BookingDetails({ darkMode }) {
             {/* Right - Service Details Card */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/20 dark:shadow-none border border-slate-200 dark:border-slate-800 relative overflow-hidden group"
+              className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl shadow-slate-200/40 dark:shadow-none border border-slate-200/60 dark:border-slate-800 relative overflow-hidden group h-full flex flex-col"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
 
@@ -172,7 +173,7 @@ export default function BookingDetails({ darkMode }) {
                 <h2 className="text-2xl font-black text-slate-800 dark:text-white">Service Scope</h2>
               </div>
 
-              <ul className="space-y-8 relative z-10">
+              <ul className="space-y-8 relative z-10 flex-grow">
                 {[
                   { icon: Info, label: "Selected Category", value: "Full-Home Deep Santization", sub: "Eco-friendly chemicals included" },
                   { icon: Clock, label: "Work Duration", value: "~ 4.5 Standard Hours" },
@@ -180,12 +181,12 @@ export default function BookingDetails({ darkMode }) {
                   { icon: ShieldCheck, label: "Service Protocol", value: "Contactless & Secured", sub: "Background verified staff only" },
                 ].map((item, index) => (
                   <motion.li key={index} variants={itemVariants} className="flex items-start gap-4 group/item">
-                    <div className="mt-1 p-2 bg-slate-100 dark:bg-slate-800 rounded-lg group-hover/item:bg-indigo-50 dark:group-hover/item:bg-indigo-900/20 transition-colors">
+                    <div className="mt-1 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg group-hover/item:bg-indigo-50 dark:group-hover/item:bg-indigo-900/20 transition-colors">
                       <item.icon size={18} className="text-slate-400 group-hover/item:text-indigo-500 transition-colors" />
                     </div>
-                    <div>
+                    <div className="flex-grow">
                       <p className="text-[11px] uppercase tracking-widest text-slate-400 font-black mb-1">{item.label}</p>
-                      <p className="font-bold text-slate-700 dark:text-slate-200">{item.value}</p>
+                      <p className="font-bold leading-tight text-slate-700 dark:text-slate-200">{item.value}</p>
                       {item.sub && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{item.sub}</p>}
                     </div>
                   </motion.li>

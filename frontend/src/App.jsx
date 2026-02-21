@@ -306,11 +306,7 @@ export default function App() {
             <Route path="/signup" element={<SignUp onRegistrationComplete={handleRegistrationComplete} />} />
             <Route path="/login" element={<Login onLoginComplete={handleLoginComplete} registeredUsers={registeredUsers} />} />
             <Route path="/logout" element={<LogOut onLogout={handleLogout} />} />
-            
-            <Route
-                     path="/booking-details"
-                     element={<BookingDetails darkMode={darkMode} />}
-            />
+            <Route path="/booking-details" element={<BookingDetails darkMode={darkMode} />} />
 
             {/* Protected Routes */}
             <Route
