@@ -11,6 +11,7 @@ import ProfileJobs from "./pages/Profilejobs";
 import ProfileEarnings from "./pages/ProfileEarnings";
 import ProfileNotifications from "./pages/ProfileNotifications";
 import ProfileDetailsPage from "./pages/ProfileDetailsPage";
+import BookingDetails from "./pages/BookingDetails";
 
 function App() {
   const [homeServices, setHomeServices] = useState([
@@ -58,6 +59,10 @@ function App() {
           <Route
             path="/register"
             element={<Register setIsAuthenticated={setIsAuthenticated} />}
+          />
+          <Route
+            path="/booking-details"
+            element={<BookingDetails setIsAuthenticated={setIsAuthenticated} />}
           />
           <Route
             path="/profile/*"
