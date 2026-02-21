@@ -95,7 +95,7 @@ export default function Navbar({
                  shadow sticky top-0 z-50 transition-colors duration-300"
     >
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-      
+
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 ml-2cd f  
         ">
@@ -113,12 +113,12 @@ export default function Navbar({
               <Link to="/" className="font-medium">
                 {t("home")}
               </Link>
-            <Link
-  to="/booking-details"
-  className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition"
->
-  My Booking
-</Link>
+              <Link
+                to="/booking-details"
+                className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition"
+              >
+                My Booking
+              </Link>
               {/* Services Dropdown */}
               <div className="relative" ref={servicesRef}>
                 <button
@@ -273,28 +273,28 @@ export default function Navbar({
 
 
 
-      {/* Mobile Right Icons */}  
+        {/* Mobile Right Icons */}
 
-    <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-3 md:hidden">
 
-      {/* Dark Mode Icon (Mobile) */}
-        <button
-          onClick={toggleDarkMode}
-         className="p-2 rounded-full bg-gray-200 dark:bg-gray-800"
+          {/* Dark Mode Icon (Mobile) */}
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-full bg-gray-200 dark:bg-gray-800"
           >
-       {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
 
-      {/* Hamburger */}
-        <button
-         onClick={() => setMenuOpen(!menuOpen)}
-          className="p-2"
-           >
-      {menuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-    </div>
+          {/* Hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2"
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
-      
+
         {/* Mobile Menu */}
         {menuOpen && !hideNavItems && (
           <div className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm">
@@ -311,6 +311,7 @@ export default function Navbar({
               </div>
 
               {/* Services */}
+             
               <div className="mb-3">
                 <button
                   onClick={() => setServicesOpen(!servicesOpen)}
@@ -323,6 +324,14 @@ export default function Navbar({
                       }`}
                   />
                 </button>
+                 <div>
+                <Link
+                  to="/booking-details"
+                  className="px-0 py-2  text-blue text-sm font-semibold transition"
+                >
+                  My Booking
+                </Link>
+              </div>
 
                 {servicesOpen && (
                   <div className="pl-3 space-y-2 mt-1">
