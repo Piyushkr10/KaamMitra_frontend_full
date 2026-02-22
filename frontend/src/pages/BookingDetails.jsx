@@ -135,11 +135,11 @@ export default function BookingDetails({ darkMode }) {
                 </div>
                 <h2 className="text-2xl font-black text-slate-800 dark:text-white">Job Details</h2>
               </div>
-
-              <ul className="space-y-8 relative z-10 flex-grow">
+ 
+              <ul className="space-y-12 relative z-10 flex-grow">
                 {[
+                  { icon: User, label: "Customer Name", value: "Rahul Sharma" },
                   { icon: MapPin, label: "Service Address", value: "Flat 402, KaamMitra Residency, New Delhi", sub: "Gate 2 access preferred" },
-                  { icon: Phone, label: "Contact Hotline", value: "+91 98765 43210", highlight: true },
                   { icon: CheckCircle2, label: "Assigned Provider", value: "Elite Cleaning Pros", sub: "Diamond Certified" },
                 ].map((item, index) => (
                   <motion.li key={index} variants={itemVariants} className="flex items-start gap-4 group/item">
@@ -173,12 +173,11 @@ export default function BookingDetails({ darkMode }) {
                 <h2 className="text-2xl font-black text-slate-800 dark:text-white">Service Scope</h2>
               </div>
 
-              <ul className="space-y-8 relative z-10 flex-grow">
+              <ul className="space-y-6 relative z-10 flex-grow">
+                {/* Regular Items */}
                 {[
+                  { icon: User, label: "Provider Name", value: "Aniket" },
                   { icon: Info, label: "Selected Category", value: "Full-Home Deep Santization", sub: "Eco-friendly chemicals included" },
-                  { icon: Clock, label: "Work Duration", value: "~ 4.5 Standard Hours" },
-                  { icon: Calendar, label: "Scheduled Slot", value: "Oct 24, 2023", sub: "Starts at 10:30 AM IST" },
-                  { icon: ShieldCheck, label: "Service Protocol", value: "Contactless & Secured", sub: "Background verified staff only" },
                 ].map((item, index) => (
                   <motion.li key={index} variants={itemVariants} className="flex items-start gap-4 group/item">
                     <div className="mt-1 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg group-hover/item:bg-indigo-50 dark:group-hover/item:bg-indigo-900/20 transition-colors">
@@ -191,13 +190,53 @@ export default function BookingDetails({ darkMode }) {
                     </div>
                   </motion.li>
                 ))}
+
+                {/* Combined Row: Duration & Schedule */}
+                <motion.li variants={itemVariants} className="grid grid-cols-2 gap-6">
+                  {[
+                    { icon: Clock, label: "Work Duration", value: "~ 4.5 hrs" },
+                    { icon: Calendar, label: "Slot", value: "Oct 24, 2023", sub: "10:30 AM" },
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3 group/item">
+                      <div className="mt-1 p-2 bg-slate-50 dark:bg-slate-800 rounded-lg group-hover/item:bg-indigo-50 dark:group-hover/item:bg-indigo-900/20 transition-colors">
+                        <item.icon size={16} className="text-slate-400 group-hover/item:text-indigo-500 transition-colors" />
+                      </div>
+                      <div className="flex-grow">
+                        <p className="text-[10px] uppercase tracking-widest text-slate-400 font-black mb-1">{item.label}</p>
+                        <p className="font-bold text-sm leading-tight text-slate-700 dark:text-slate-200">{item.value}</p>
+                        {item.sub && <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">{item.sub}</p>}
+                      </div>
+                    </div>
+                  ))}
+                </motion.li>
               </ul>
+               {/* CALL SECTION (Replaced Partner Notes) */}
+    <div className="mt-6 p-5 rounded-2xl border
+      bg-slate-50 dark:bg-slate-800/60
+      border-slate-200 dark:border-slate-700">
+
+      <p className="text-[10px] uppercase font-black text-slate-400 mb-3">
+        Contact Provider
+      </p>
+
+      <div className="flex gap-3">
+        <button className="flex-1 py-2.5 rounded-xl font-semibold
+          bg-green-500 hover:bg-green-600 text-white transition">
+          Call Now
+        </button>
+
+        <button className="flex-1 py-2.5 rounded-xl font-semibold
+          bg-blue-500 hover:bg-blue-600 text-white transition">
+          Message
+        </button>
+      </div>
+    </div>
             </motion.div>
           </motion.div>
         </div>
 
       {/* ================= MODERN PAYMENT SUMMARY ================= */}
-<div className={`max-w-5xl mx-auto my-16 px-6`}>
+<div className={`max-w-6xl mx-auto my-16 px-6`}>
   <div className={`rounded-[2rem] p-10 transition-all duration-300 ${
     darkMode 
     ? "bg-slate-900 border border-slate-800 shadow-2xl" 
