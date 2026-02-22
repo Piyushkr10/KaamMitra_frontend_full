@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 
+
 const Navbar = ({ isAuthenticated, handleLogout }) => {
   const navigate = useNavigate();
 
@@ -20,12 +21,21 @@ const Navbar = ({ isAuthenticated, handleLogout }) => {
           <div className="flex-shrink-0 flex items-center">
             <img className="h-10 w-auto" src="logo.png" alt="Logo" />
           </div>
+        
+          
+         
           <div className="flex items-center space-x-8">
             <Link
               to="/"
               className="text-blue-800 dark:text-white hover:text-blue-600 font-medium"
             >
               About
+            </Link>
+            <Link
+              to="/booking-details"
+              className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition"
+            >
+              My Booking
             </Link>
             {isAuthenticated && (
               <button

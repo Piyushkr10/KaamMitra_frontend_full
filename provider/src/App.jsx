@@ -60,6 +60,7 @@ function App() {
             path="/register"
             element={<Register setIsAuthenticated={setIsAuthenticated} />}
           />
+          <Route path="/booking-details" element={<BookingDetails />} />
           <Route
             path="/booking-details"
             element={<BookingDetails setIsAuthenticated={setIsAuthenticated} />}
