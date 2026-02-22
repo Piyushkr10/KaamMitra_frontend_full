@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Moon, Sun, User, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const SERVICES = [
   "Plumbing",
@@ -112,12 +113,6 @@ export default function Navbar({
               <Link to="/" className="font-medium">
                 {t("home")}
               </Link>
-              <Link
-              to="/booking-details"
-              className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition"
-            >
-              My Booking
-            </Link>
 
               {/* Services Dropdown */}
               <div className="relative" ref={servicesRef}>

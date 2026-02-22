@@ -62,6 +62,10 @@ function App() {
           />
           <Route path="/booking-details" element={<BookingDetails />} />
           <Route
+            path="/booking-details"
+            element={<BookingDetails setIsAuthenticated={setIsAuthenticated} />}
+          />
+          <Route
             path="/profile/*"
             element={
               isAuthenticated ? (
