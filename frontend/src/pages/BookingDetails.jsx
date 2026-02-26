@@ -1,7 +1,9 @@
 import React from "react";
 import Footer from "../components/Footer";
+import PremiumPaymentModal from "../components/PaymentModal";
+import FeedbackModal from "../components/FeedbackModal";
+import { motion } from "framer-motion";
 
-import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -30,17 +32,26 @@ export default function BookingDetails({ darkMode }) {
       },
     },
   };
+const [sliderX, setSliderX] = React.useState(0);
+const [showPaymentModal, setShowPaymentModal] = React.useState(false);
+const [paymentDone, setPaymentDone] = React.useState(false);
+const [showFeedbackModal, setShowFeedbackModal] = React.useState(false);
 
+const maxSlide = 230;
   const itemVariants = {
     hidden: { opacity: 0, x: -10 },
     visible: { opacity: 1, x: 0 },
   };
-
-  // ✅ Frontend logic (Replace with API data later)
   const totalAmount = 3000;
-  const tokenPaid = 900;
-  const remainingAmount = totalAmount - tokenPaid;
-  const paymentProgress = (tokenPaid / totalAmount) * 100;
+const tokenPaid = 900;
+
+const calculatedRemaining =
+  paymentDone ? 0 : totalAmount - tokenPaid;
+
+const paymentProgress =
+  paymentDone ? 100 : (tokenPaid / totalAmount) * 100;
+
+
 
   return (
     <div
@@ -197,89 +208,266 @@ export default function BookingDetails({ darkMode }) {
         </div>
 
       {/* ================= MODERN PAYMENT SUMMARY ================= */}
+{/* ================= PAYMENT SUMMARY ================= */}
+
 <div className={`max-w-5xl mx-auto my-16 px-6`}>
-  <div className={`rounded-[2rem] p-10 transition-all duration-300 ${
-    darkMode 
-    ? "bg-slate-900 border border-slate-800 shadow-2xl" 
-    : "bg-white border border-slate-100 shadow-2xl shadow-slate-200/50"
-  }`}>
-    
-    {/* Header Section */}
+  <div
+    className={`rounded-[2rem] p-10 transition-all duration-300 ${
+      darkMode
+        ? "bg-slate-900 border border-slate-800 shadow-2xl"
+        : "bg-white border border-slate-100 shadow-2xl shadow-slate-200/50"
+    }`}
+  >
+
+    {/* ================= LOGIC ADDED ================= */}
+    {/*
+      paymentDone → becomes true after modal payment
+    */}
+
+  
+    {/* ================= HEADER ================= */}
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
       <div>
-        <h2 className="text-3xl font-bold tracking-tight mb-1">Payment Summary</h2>
-       
+        <h2 className="text-3xl font-bold tracking-tight mb-1">
+          Payment Summary
+        </h2>
       </div>
-      <div className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase flex items-center gap-2 ${
-        remainingAmount > 0 
-        ? "bg-amber-500/10 text-amber-600 border border-amber-500/20" 
-        : "bg-emerald-500/10 text-emerald-600 border border-emerald-500/20"
-      }`}>
-        <div className={`w-2 h-2 rounded-full ${remainingAmount > 0 ? "bg-amber-500" : "bg-emerald-500"} animate-pulse`} />
-        {remainingAmount > 0 ? "Payment Pending" : "Payment Completed"}
+
+      <div
+        className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase flex items-center gap-2 ${
+          calculatedRemaining > 0
+            ? "bg-amber-500/10 text-amber-600 border border-amber-500/20"
+            : "bg-emerald-500/10 text-emerald-600 border border-emerald-500/20"
+        }`}
+      >
+        <div
+          className={`w-2 h-2 rounded-full ${
+            calculatedRemaining > 0
+              ? "bg-amber-500"
+              : "bg-emerald-500"
+          } animate-pulse`}
+        />
+
+        {calculatedRemaining > 0
+          ? "Payment Pending"
+          : "Payment Completed"}
       </div>
     </div>
 
-    {/* Main Stats Grid */}
+    {/* ================= STATS ================= */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-      {/* Total Amount */}
+
+      {/* Total */}
       <div className="space-y-1">
-        <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Total Valuation</p>
-        <p className="text-3xl font-bold tracking-tighter">₹{totalAmount.toLocaleString()}</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
+          Total Valuation
+        </p>
+        <p className="text-3xl font-bold tracking-tighter">
+          ₹{totalAmount.toLocaleString()}
+        </p>
       </div>
 
-      {/* Amount Realized */}
+      {/* Paid */}
       <div className="space-y-1">
-        <p className="text-xs font-bold uppercase tracking-widest text-emerald-500/80">Amount Realized</p>
-        <p className="text-3xl font-bold tracking-tighter text-emerald-500">₹{tokenPaid.toLocaleString()}</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-emerald-500/80">
+          Amount Realized
+        </p>
+        <p className="text-3xl font-bold tracking-tighter text-emerald-500">
+          ₹
+          {(paymentDone
+            ? totalAmount
+            : tokenPaid
+          ).toLocaleString()}
+        </p>
       </div>
 
-      {/* Net Payables */}
+      {/* Remaining */}
       <div className="space-y-1">
-        <p className="text-xs font-bold uppercase tracking-widest text-blue-600">Net Payables</p>
-        <p className="text-3xl font-extrabold tracking-tighter">₹{remainingAmount.toLocaleString()}</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-blue-600">
+          Net Payables
+        </p>
+        <p className="text-3xl font-extrabold tracking-tighter">
+          ₹{calculatedRemaining.toLocaleString()}
+        </p>
       </div>
     </div>
 
     {/* Progress Bar Layer */}
     <div className="mb-12">
       <div className="flex justify-between items-center mb-3">
-        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Settlement Progress</span>
-        <span className="text-sm font-bold text-blue-600 italic">{Math.round(paymentProgress)}% Completed</span>
+        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          Settlement Progress
+        </span>
+
+        <span className="text-sm font-bold text-blue-600 italic">
+          {Math.round(paymentProgress)}% Completed
+        </span>
       </div>
-      <div className={`h-3 w-full rounded-full overflow-hidden ${darkMode ? "bg-slate-800" : "bg-slate-100"}`}>
-        <motion.div 
+
+      <div
+        className={`h-3 w-full rounded-full overflow-hidden ${
+          darkMode ? "bg-slate-800" : "bg-slate-100"
+        }`}
+      >
+        <motion.div
+          key={paymentDone}   // ✅ re-animate when paid
           initial={{ width: 0 }}
           animate={{ width: `${paymentProgress}%` }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
           className="h-full bg-blue-600 rounded-full shadow-[0_0_15px_rgba(37,99,235,0.4)]"
         />
       </div>
     </div>
 
-    {/* Footer/Action Layer */}
-    <div className={`flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl ${
-      darkMode ? "bg-slate-800/50" : "bg-slate-50"
-    }`}>
-      <p className="text-sm font-medium text-slate-500 max-w-sm">
-        {remainingAmount > 0 
-          ? "Please proceed with the payment to finalize your booking and secure the transaction." 
-          : "Your booking is fully settled. You can download the official tax invoice below."}
-      </p>
-      
-      <div className="flex gap-4 w-full sm:w-auto">
-        {remainingAmount > 0 ? (
-          <button className="flex-grow sm:flex-none px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold transition-all shadow-lg shadow-blue-500/20 active:scale-95">
-            Pay Balance Now
-          </button>
-        ) : (
-          <button className="flex-grow sm:flex-none px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold transition-all flex items-center justify-center gap-2 active:scale-95">
-            <Download size={18} />
-            Download Invoice
-          </button>
-        )}
-      </div>
-    </div>
+     
+{/* ================= Footer / Action Layer ================= */}
+<div
+  className={`flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl ${
+    darkMode ? "bg-slate-800/50" : "bg-slate-50"
+  }`}
+>
+  <p className="text-sm font-medium text-slate-500 max-w-sm">
+    {calculatedRemaining > 0
+      ? "Please proceed with the payment to finalize your booking and secure the transaction."
+      : "Your booking is fully settled."}
+  </p>
+
+  {calculatedRemaining > 0 && (
+    <div className="flex justify-center">
+
+      {/* ================= PREMIUM SLIDER ================= */}
+   <div className="flex justify-end">
+
+<div
+  className={`relative w-[280px] h-[54px] rounded-full overflow-hidden
+  transition-all duration-300
+  ${
+    paymentDone
+      ? "bg-emerald-500"
+      : darkMode
+      ? "bg-slate-800 border border-slate-700"
+      : "bg-slate-100 border border-slate-200"
+  }`}
+>
+
+{/* ===== SLIDE COLOR FILL ===== */}
+<motion.div
+  style={{
+    width: paymentDone
+      ? "100%"
+      : sliderX + 52,
+  }}
+  className="
+    absolute left-0 top-0 bottom-0
+    rounded-full
+    bg-gradient-to-r
+    from-indigo-500 via-blue-500 to-emerald-400
+  "
+/>
+
+{/* ===== TEXT ===== */}
+<div
+ className="
+absolute inset-0
+flex items-center justify-center
+pointer-events-none
+text-[15px]
+font-semibold
+tracking-wide
+text-slate-700 dark:text-white
+"
+>
+  {paymentDone ? "Payment Completed ✅" : "Slide to Pay"}
+</div>
+
+{/* ===== KNOB ===== */}
+{!paymentDone && (
+<motion.div
+  drag="x"
+  dragConstraints={{ left: 0, right: maxSlide }}
+  dragElastic={0}
+
+animate={{ x: sliderX }}
+transition={{ type: "tween", ease: "linear" }}
+
+  whileTap={{ scale: 0.92 }}
+
+  onDrag={(e, info) => {
+    const x = Math.min(Math.max(info.offset.x, 0), maxSlide);
+    setSliderX(x);
+  }}
+
+  onDragEnd={(e, info) => {
+    if (info.offset.x > maxSlide - 15) {
+      setSliderX(maxSlide);
+      setShowPaymentModal(true);
+    } else {
+      setSliderX(0); // ✅ reset smoothly
+    }
+  }}
+
+ className="
+absolute left-1 top-1 
+w-11 h-11
+rounded-full
+bg-white
+shadow-xl
+border border-slate-200
+flex items-center justify-center
+cursor-grab active:cursor-grabbing
+"
+>
+
+{/* PREMIUM MOVING ARROW */}
+<motion.div
+  animate={{ x: [0, 5, 0] }}
+  transition={{
+    repeat: Infinity,
+    duration: 1.2,
+    ease: "easeInOut",
+  }}
+  className="text-indigo-600 text-2xl font-bold"
+>
+  →
+</motion.div>
+
+</motion.div>
+)}
+
+</div>
+</div>
+          </div>
+  )}
+</div>
+{/* ================= PAYMENT MODAL ================= */}
+<PremiumPaymentModal
+  isOpen={showPaymentModal}
+  onClose={() => {
+  setShowPaymentModal(false);
+  setSliderX(0); // ✅ BALL RETURNS
+}}
+ onSuccess={() => {
+  setPaymentDone(true);
+  setShowPaymentModal(false);
+  setSliderX(0);
+
+  // ⭐ open feedback after short delay
+  setTimeout(() => {
+    setShowFeedbackModal(true);
+  }, 800);
+}}
+  amount={calculatedRemaining}
+  darkMode={darkMode}
+/>
+
+{/* ================= FEEDBACK MODAL ================= */}
+<FeedbackModal
+  isOpen={showFeedbackModal}
+  onClose={() => setShowFeedbackModal(false)}
+  onSubmitSuccess={() => {
+    setShowFeedbackModal(false);
+  }}
+/>
 
   </div>
 </div>
