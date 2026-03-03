@@ -1,0 +1,257 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ServiceMenu Component > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex justify-center mb-10 flex-wrap gap-2 md:gap-4 py-4 px-4 bg-gray-100 dark:bg-gray-900 rounded-xl max-w-6xl mx-auto shadow-lg"
+  >
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="All Services"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/94a3b8/fff?text=All"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        All Services
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Home Services"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/f54291/fff?text=Home"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Home Services
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Professional Works"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/4287f5/fff?text=Pro"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Professional Works
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Digital Works"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/42f55a/fff?text=Dig"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Digital Works
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Emergency service"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/e63946/fff?text=Emerg"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Emergency service
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Per day Services"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/ffc300/fff?text=Day"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Per day Services
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Medical Helpers"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/00bbf9/fff?text=Med"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Medical Helpers
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ServicesMenu Component > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex justify-center mb-10 flex-wrap gap-2 md:gap-4 py-4 px-4 bg-gray-100 dark:bg-gray-900 rounded-xl max-w-6xl mx-auto shadow-lg"
+  >
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-blue-600 text-white shadow-lg transform scale-105
+          "
+    >
+      <img
+        alt="All Services"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/94a3b8/fff?text=All"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        All Services
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Home Services"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/f54291/fff?text=Home"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Home Services
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Professional Works"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/4287f5/fff?text=Pro"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Professional Works
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Digital Works"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/42f55a/fff?text=Dig"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Digital Works
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Emergency service"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/e63946/fff?text=Emerg"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Emergency service
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Per day Services"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/ffc300/fff?text=Day"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Per day Services
+      </span>
+    </button>
+    <button
+      class="
+            flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ease-in-out
+            bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+          "
+    >
+      <img
+        alt="Medical Helpers"
+        class="w-6 h-6 rounded-full"
+        src="https://placehold.co/40x40/00bbf9/fff?text=Med"
+      />
+      <span
+        class="text-sm sm:text-base whitespace-nowrap"
+      >
+        Medical Helpers
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -36,7 +36,7 @@ export default function BookingDetails({ darkMode }) {
     visible: { opacity: 1, x: 0 },
   };
 
-  // ✅ Frontend logic (Replace with API data later)
+  //  Frontend logic (Replace with API data later)
   const totalAmount = 3000;
   const tokenPaid = 900;
   const remainingAmount = totalAmount - tokenPaid;
