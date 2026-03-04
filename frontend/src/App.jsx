@@ -24,6 +24,7 @@ import TokenPaymentPage from "./pages/TokenPayment";
 
 
 import ProviderSearchModal from "./components/ProviderSearchModal";
+import SearchProviderPage from "./pages/SearchProviderPage";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -173,7 +174,6 @@ export default function App() {
             />
 
             <Route path="/logout" element={<LogOut onLogout={handleLogout} />} />
-            <Route path="/booking-details" element={<BookingDetails darkMode={darkMode} />} />
 
             {/* Protected Routes */}
             <Route
@@ -235,8 +235,9 @@ export default function App() {
             {/* Catch-all */}
             <Route path="*" element={<Navigate to="/" replace />} />
 
-
+            <Route path="/search-provider" element={<SearchProviderPage/>}/>
             <Route path="/preview" element={<ProviderSearchModal open={true}/>} />
+            <Route path="/booking-details" element={<BookingDetails darkMode={darkMode} />} />
           </Routes>
 
         </Router>

@@ -72,7 +72,7 @@ const TokenPaymentPage = ({ darkMode }) => {
             bookingId,
           });
 
-          navigate("/booking-details", {
+          navigate("/search-provider", {
             state: { bookingId },
           });
         },

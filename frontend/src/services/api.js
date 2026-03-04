@@ -19,25 +19,6 @@ const buildHeaders = (auth = false) => {
    REQUEST WRAPPER (FIXED)
 ====================================================== */
 
-// const request = async (url, options = {}, auth = false) => {
-//   const res = await fetch(url, {
-//     ...options,
-//     headers: { ...buildHeaders(auth), ...(options.headers || {}) },
-//     credentials: "include",
-//   });
-
-//   let data = {};
-//   try {
-//     data = await res.json();
-//   } catch (err) {}
-
-//   if (!res.ok) {
-//     throw new Error(data.error || data.message || "Request failed");
-//   }
-
-//   return data;
-// };
-
 const request = async (url, options = {}, auth = false) => {
   const res = await fetch(url, {
     ...options,
@@ -318,4 +299,39 @@ export const verifyDeleteOtp = async (otp) => {
 
   localStorage.removeItem("accessToken");
   return data;
+};
+
+
+
+/* ======================================================
+   BOOKING DETAILS PAGE
+====================================================== */
+
+export const getBookingDetails = async(bookingId)=>{
+  if(!bookingId) throw new Error ("Booking Id missing");
+
+  return request(
+    `${API_BASE}/booking/${bookingId}/details`,
+    {
+      method:"GET"
+    },
+    true
+  );
+}
+
+/* ======================================================
+   FEEDBACK API
+====================================================== */
+
+export const submitFeedback = async (bookingId, feedbackData) => {
+  if (!bookingId) throw new Error("Booking ID missing");
+
+  return request(
+    `${API_BASE}/feedback/${bookingId}`,
+    {
+      method: "POST",
+      body: JSON.stringify(feedbackData),
+    },
+    true
+  );
 };
