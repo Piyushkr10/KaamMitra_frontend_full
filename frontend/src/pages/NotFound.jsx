@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-// import { Button } from '@/components/ui/button';
+// import { button } from '@/components/ui/button';
 import { Home, ArrowLeft } from 'lucide-react';
 
 const NotFound = () => {
@@ -13,15 +13,15 @@ const NotFound = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/">
-            <Button className="bg-gradient-primary text-white">
+            <button className="bg-gradient-primary text-white">
               <Home className="h-4 w-4 mr-2" />
               Go Home
-            </Button>
+            </button>
           </Link>
-          <Button variant="outline" onClick={() => window.history.back()}>
+          <button variant="outline" onClick={() => window.history.back()}>
             <ArrowLeft className="h-4 w-4 mr-2" />
             Go Back
-          </Button>
+          </button>
         </div>
       </div>
     </div>
